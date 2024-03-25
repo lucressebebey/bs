@@ -3,12 +3,14 @@ name: Repository Mirroring
 on: [push, pull_request]
 
 jobs:
-  mirror_repository:
+  to_gitlab:
+    name: "pushes all files to mirror specified"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
+        with:
+          fetch-depth: 0
       - name: Mirror repository
         uses: pixta-dev/repository-mirroring-action@v1
         with:
