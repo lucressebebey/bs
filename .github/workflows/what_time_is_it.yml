@@ -1,1 +1,13 @@
+name: What time is it
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  show_time:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show current date and time
+        run: date
